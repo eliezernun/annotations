@@ -33,13 +33,16 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<!-- Se você estiver usando AOP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
-		<!-- Para usar @Value -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -53,7 +56,7 @@
 
 	<build>
 		<plugins>
-			<!-- Plugin do Spring Boot -->
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
