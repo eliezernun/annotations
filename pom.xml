@@ -9,20 +9,22 @@
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>annotations</name>
-	<description>Projeto de anotações com Spring Boot</description>
-
 	<properties>
 		<java.version>21</java.version>
-		<spring-boot.version>3.2.5</spring-boot.version>
+		<spring.boot.version>3.2.0</spring.boot.version>
 	</properties>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>${spring-boot.version}</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<!-- Core Spring Boot -->
@@ -31,32 +33,25 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<!-- Para usar anotações como @Service, @Value, @Configuration -->
+		<!-- Se você estiver usando AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
-
-		<!-- Para testes (opcional) -->
+		<!-- Para usar @Value -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- Plugin para compilar com Java 21 -->
+			<!-- Plugin do Spring Boot -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
